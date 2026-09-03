@@ -70,6 +70,22 @@ class Program
         Student s = new Student(name, grade);
         students.Add(s);
         Console.WriteLine("Student added successfully.");
+        Console.WriteLine("===============================================================");
+    }
+    static void ListAllStudents()
+    {
+        if (students.Count == 0)
+        {
+            Console.WriteLine("No students found.");
+            Console.WriteLine("===============================================================");
+            return;
+        }
+        Console.WriteLine("List of Students:");
+        foreach (var student in students)
+        {
+            Console.WriteLine($"Name: {student.Name}, Grade: {student.Grade}");
+        }
+        Console.WriteLine("===============================================================");
     }
     static void Main(string[] args)
     {
@@ -82,7 +98,9 @@ class Program
                 case 1:
                     AddStudent();
                     break;
-                
+                case 2:
+                    ListAllStudents();
+                    break;
             } 
         }
     }
