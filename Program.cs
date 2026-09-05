@@ -34,7 +34,7 @@ class Program
         string input = Console.ReadLine();
         while (true)
         {
-            if(input == "1" || input == "2" || input == "3" || input == "4")
+            if (input == "1" || input == "2" || input == "3" || input == "4")
             {
                 break;
             }
@@ -47,7 +47,7 @@ class Program
         }
         return Convert.ToInt32(input);
     }
-    
+
     // Add Student Function
     static void AddStudent()
     {
@@ -87,12 +87,24 @@ class Program
         }
         Console.WriteLine("===============================================================");
     }
+    static void CalculateAverage()
+    {
+        if (students.Count == 0)
+        {
+            Console.WriteLine("No students found.");
+            Console.WriteLine("===============================================================");
+            return;
+        }
+        double average = students.Average(s => s.Grade);
+        Console.WriteLine($"Average Grade: {average}");
+        Console.WriteLine("===============================================================");
+    }
     static void Main(string[] args)
     {
         int x = 1;
         while (x == 1)
         {
-        int option = Menu();
+            int option = Menu();
             switch (option)
             {
                 case 1:
@@ -101,7 +113,14 @@ class Program
                 case 2:
                     ListAllStudents();
                     break;
-            } 
+                case 3:
+                    CalculateAverage();
+                    break;
+                case 4:
+                    x = 0;
+                    Console.WriteLine("Thank You");
+                    break;
+            }
         }
     }
 }
